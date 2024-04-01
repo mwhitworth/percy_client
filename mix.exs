@@ -4,7 +4,7 @@ defmodule PercyClient.MixProject do
   def project do
     [
       app: :percy_client,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       preferred_cli_env: [ci: :test],
