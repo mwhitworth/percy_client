@@ -39,11 +39,12 @@ defmodule PercyClient do
   #
 
   defp inject_script(%Session{} = session) do
-    Cache.get_or_fetch(:dom_script, fn ->
+    dom_script = Cache.get_or_fetch(:dom_script, fn ->
       {:ok, %{body: body}} = HTTPClient.get("/dom.js")
-      execute_script(session, body)
+      body
     end)
 
+    execute_script(session, dom_script)
     :ok
   end
 
